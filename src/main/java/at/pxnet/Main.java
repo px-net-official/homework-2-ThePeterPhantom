@@ -18,7 +18,13 @@ public class Main {
         // A Person's id can never change
         // A person's age can change
         //
-
+        Person RottenRobbie = new Person("SE001", "Robbie Rotten", 30, new int[]{3, 2, 3, 1, 3, 1});
+        Person BennettConrad = new Person("SE002", "Conrad Bennett", 22, new int[]{5, 3, 4, 3, 3, 2});
+        Person CoxCharlie = new Person("SE003", "Charlie Cox", 23, new int[]{2, 1, 5, 5, 1, 4});
+        Person BushJeb = new Person("SE004", "Jeb Bush", 72, new int[]{1, 1, 1, 1, 1, 1});
+        Person AlucardVlad = new Person("SE005", "Vlad Alucard", 597, new int[]{2, 4, 3, 4, 4, 4});
+        Person WayneBruce = new Person ("SE006", "Bruce Wayne", 33, new int[]{3, 2, 5, 4, 2, 3});
+        Person BondJames = new Person ("SE007", "James Bond", 32, new int[]{1, 1, 5, 3, 4, 2});
         // ----
         //
         // Create a class "Grading" in the at.pxnet package
@@ -38,7 +44,26 @@ public class Main {
         // * "getStudents" returns a List of Persons. The list must be unmodifiable
         // * "getFailingStudents" returns a List of Persons. The list must be unmodifiable
         //
+        University uni = new University();
+        uni.addStudent(RottenRobbie);
+        uni.addStudent(BennettConrad);
+        uni.addStudent(CoxCharlie);
+        uni.addStudent(BushJeb);
+        uni.addStudent(AlucardVlad);
+        uni.addStudent(WayneBruce);
+        uni.addStudent(BondJames);
+
+        System.out.println("\nAll students:");
+        for (Person p : uni.getStudents()) {
+            System.out.println(p.getName() + " (" + p.getAge() + ")");
+        }
+        System.out.println("\nStudents in risk of failing:");
+        for (Person p : uni.getFailingStudents()) {
+            System.out.println(p.getName());
+        }
+
         // An additional method "getAverageAge" does not take any parameters and returns the average age of the
         // students (double). If no students are enlisted in the university, "0" is returned.
+        System.out.printf("\nAverage age: %.2f%n", uni.getAverageAge());
     }
 }
